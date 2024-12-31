@@ -4,57 +4,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>KYOTAKA MD</title>
-  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
-  <style>
-    body {
-      background: linear-gradient(to right,orange,red);
-      text-align: center;
-      font-size: 16px;
-      font-family: arial,sans-serif;
-    }
-    footer{
-      position: fixed;
-      bottom: 0;
-    }
-    button, input {
-      margin: 20px;
-      padding:10px;
-    }
-    #qr-code {
-      margin: 20px;
-    }
-  </style>
+  <title></title>
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .button {
+            background-color: #25D366; /* Couleur de WhatsApp */
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #128C7E; /* Couleur plus foncée au survol */
+        }
+    </style>
 </head>
 
 <body>
-<h1>KYOTAKA SESSION ID</h1>
-<form>
-  <label type="session id" for="s1"><b>entrez votre numéro de téléphone</b></label>
-  <input type="session id" id="s1"placeholder="entrez votre numéro"></input>
-  <button onclick="generateSession()">envoyer </button>
-  <div id="output"></div>
-  <canvas id="qr-code"></canvas>
-  <footer>
-    <b>Creator</b><a href="https://www.facebook.com/profile.php?id=61567813072795">Dan jersey</a>
-      <script>
-      async function generateSession() {
-      try {
-        const response = await fetch('http://localhost:3000/generate-session');
-        const data = await response.json();
-        document.getElementById('output').textContent = `Session ID: ${data.sessionId}`;
 
-        // Générer un QR Code
-        const qrCodeCanvas = document.getElementById('qr-code');
-        QRCode.toCanvas(qrCodeCanvas, data.sessionId, (error) => {
-          if (error) console.error(error);
-        });
-      } catch (error) {
-        alert("Erreur lors de la génération du Session ID");
-      }
-    }
-      </script>
- </footer>
+    <h1>Connectez-vous sur WhatsApp</h1>
+    <p>Cliquez sur le bouton ci-dessous pour démarrer une conversation WhatsApp.</p>
+
+    <a href="https://wa.me/NUMERO_DE_TELEPHONE" class="button">Démarrer WhatsApp</a>
+
+    <script>
+        // Remplacez NUMERO_DE_TELEPHONE par le numéro de téléphone au format international
+        // Par exemple, pour un numéro français : 33612345678 (sans le + et sans espaces)
+        const phoneNumber = '33612345678'; // Remplacez par le numéro souhaité
+        document.querySelector('.button').href = `https://wa.me/${phoneNumber}`;
+    </script>
+
 </body>
-
 </html
