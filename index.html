@@ -1,46 +1,62 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-   <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion à WhatsApp</title>
+    <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
         }
-        .button {
-            background-color: #25D366; /* Couleur de WhatsApp */
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #25D366;
             color: white;
-            padding: 15px 30px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
+            border: none;
             border-radius: 5px;
-            transition: background-color 0.3s;
+            cursor: pointer;
         }
-        .button:hover {
-            background-color: #128C7E; /* Couleur plus foncée au survol */
+        button:hover {
+            background-color: #128C7E;
+        }
+        .code {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
         }
     </style>
 </head>
-
 <body>
 
-    <h1>Connectez-vous sur WhatsApp</h1>
-    <p>Cliquez sur le bouton ci-dessous pour démarrer une conversation WhatsApp.</p>
+<div class="container">
+    <h1>Connexion à WhatsApp</h1>
+    <p>Appuyez sur le bouton ci-dessous pour générer un code de connexion.</p>
+    <button id="generateCodeButton">Générer le code</button>
+    <div class="code" id="codeDisplay"></div>
+</div>
 
-    <a href="https://wa.me/NUMERO_DE_TELEPHONE" class="button">Démarrer WhatsApp</a>
-
-    <script>
-        // Remplacez NUMERO_DE_TELEPHONE par le numéro de téléphone au format international
-        // Par exemple, pour un numéro français : 33612345678 (sans le + et sans espaces)
-        const phoneNumber = '33612345678'; // Remplacez par le numéro souhaité
-        document.querySelector('.button').href = `https://wa.me/${phoneNumber}`;
-    </script>
+<script>
+    document.getElementById('generateCodeButton').addEventListener('click', function() {
+        // Simuler la génération d'un code
+        const sessionId = Math.random().toString(36).substring(2, 15);
+        document.getElementById('codeDisplay').innerText = 'Votre code de connexion : ' + sessionId;
+    });
+</script>
 
 </body>
 </html
